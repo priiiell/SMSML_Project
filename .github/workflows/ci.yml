@@ -13,23 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Mengunduh berkas kode dari repositori GitHub ke server virtual Ubuntu
     - name: Checkout Repository Code
       uses: actions/checkout@v4
 
-    # 2. Memasang Python versi 3.12 yang stabil di server GitHub
     - name: Setup Python Environment
       uses: actions/setup-python@v5
       with:
         python-version: "3.12"
 
-    # 3. Menginstal library Python yang dibutuhkan untuk proses retraining
     - name: Install Project Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install mlflow scikit-learn pandas numpy
 
-    # 4. Menjalankan proses latih ulang model dengan parameter lingkungan lokal
     - name: Execute MLflow Retraining
       run: |
-        mlflow run MLProject --experiment-name="IBM_HR_Attrition_Retraining_CI" --env-manager=local
+        # Pindah ke dalam folder proyek dulu baru run agar sinkron total gess
+        cd MLProject
+        mlflow run . --env-manager=local
