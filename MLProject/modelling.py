@@ -14,25 +14,38 @@ def train_baseline_model():
     experiment_name = "IBM_HR_Attrition_Eksperimen"
     mlflow.set_experiment(experiment_name)
     
-    # === PENYESUAIAN JALUR FILE SESUAI FOTO EXPLORER KAMU ===
-    # Mencari folder 'preprocessing' dari root direktori tempat kamu run terminal
-    dataset_path = os.path.join("preprocessing", "ibm_attrition_preprocessing.csv")
+    # === 🛠️ TRIK JELI PENYESUAIAN JALUR DATASET UNTUK CI PIPELINE ===
+    filename = "ibm_attrition_preprocessing.csv"
     
-    # Jalur cadangan jika kamu mengeksekusi terminal dari dalam folder Membangun_Model
-    if not os.path.exists(dataset_path):
-        dataset_path = os.path.join("..", "preprocessing", "ibm_attrition_preprocessing.csv")
+    # Cek 1: Jika dijalankan via GitHub Actions / MLflow run di root folder
+    if os.path.exists(os.path.join("MLProject", filename)):
+        dataset_path = os.path.join("MLProject", filename)
+    # Cek 2: Jika dijalankan langsung dari dalam folder MLProject
+    elif os.path.exists(filename):
+        dataset_path = filename
+    # Cek 3: Menggunakan struktur folder preprocessing bawaan lamamu
+    elif os.path.exists(os.path.join("preprocessing", filename)):
+        dataset_path = os.path.join("preprocessing", filename)
+    else:
+        dataset_path = os.path.join("..", "preprocessing", filename)
         
+    # Validasi Akhir Keberadaan File
     if os.path.exists(dataset_path):
         print(f"• Memuat dataset bersih dari: {dataset_path}")
         df_clean = pd.read_csv(dataset_path)
     else:
-        print("⚠️ Error: Berkas ibm_attrition_preprocessing.csv tidak ditemukan!")
+        print(f"⚠️ Error: Berkas {filename} tidak ditemukan di direktori mana pun!")
         print("Pastikan posisi file CSV hasil preprocessing tidak berpindah folder ya gess.")
         return
 
     # Memisahkan Fitur (X) dan Target (y)
-    X = df_clean.drop(columns=['Attrition'])
-    y = df_clean['Attrition']
+    # Menyesuaikan nama kolom target dataset kamu
+    target_column = 'Attrition'
+    if target_column not in df_clean.columns:
+        target_column = df_clean.columns[-1] # fallback ke kolom terakhir jika namanya ter-encode
+        
+    X = df_clean.drop(columns=[target_column])
+    y = df_clean[target_column]
     
     # Splitting data dengan stratify agar rasio target seimbang
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
