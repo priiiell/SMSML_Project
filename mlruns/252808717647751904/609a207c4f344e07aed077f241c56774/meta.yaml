@@ -1,0 +1,14 @@
+artifact_uri: file:C:/Users/Advan/Downloads/SMSML_Aurel Puteri Ramadani/mlruns/252808717647751904/609a207c4f344e07aed077f241c56774/artifacts
+end_time: 1778926319684
+entry_point_name: ''
+experiment_id: '252808717647751904'
+lifecycle_stage: active
+run_id: 609a207c4f344e07aed077f241c56774
+run_name: Random_Forest_Local_Run
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778926303274
+status: 3
+tags: []
+user_id: Advan

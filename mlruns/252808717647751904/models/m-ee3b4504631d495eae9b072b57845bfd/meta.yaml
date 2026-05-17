@@ -1,0 +1,10 @@
+artifact_location: file:C:/Users/Advan/Downloads/SMSML_Aurel Puteri Ramadani/mlruns/252808717647751904/models/m-ee3b4504631d495eae9b072b57845bfd/artifacts
+creation_timestamp: 1778926303986
+experiment_id: '252808717647751904'
+last_updated_timestamp: 1778926315742
+model_id: m-ee3b4504631d495eae9b072b57845bfd
+model_type: null
+name: model
+source_run_id: 609a207c4f344e07aed077f241c56774
+status: 2
+status_message: null

@@ -1,0 +1,11 @@
+=== LOG EKSPERIMEN SYSTEM MACHINE LEARNING ===
+Nama Mahasiswa : Aurel Puteri Ramadani
+Dataset        : IBM HR Analytics Employee Attrition & Performance
+Model Baseline : RandomForestClassifier
+Target Variabel: Attrition (Yes / No)
+
+[Tahapan Eksperimen Lokal]
+1. Data Preprocessing: Dataset dibersihkan dan disimpan ke dalam file 'ibm_attrition_preprocessing.csv'.
+2. Pelatihan Model: Menggunakan algoritma RandomForestClassifier pada file 'modelling.py'.
+3. Pelacakan Model (Tracking): Menggunakan library MLflow Autolog secara lokal untuk mencatat parameter, metrik, dan menyimpan artefak model ke dalam folder 'mlruns'.
+4. Hasil Evaluasi Baseline: Model berhasil dilatih dengan capaian Accuracy Score sebesar 0.8401 (84%).

@@ -1,0 +1,23 @@
+artifact_path: file:C:/Users/Advan/Downloads/SMSML_Aurel Puteri Ramadani/mlruns/0/models/m-7cecde2d31464eea95c38e0347cf6395/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.12.0
+model_id: m-7cecde2d31464eea95c38e0347cf6395
+model_size_bytes: 1548714
+model_uuid: m-7cecde2d31464eea95c38e0347cf6395
+prompts: null
+run_id: 2aee03b8a8b14a938bc0ba10fd51c50d
+utc_time_created: '2026-05-17 01:48:48.826143'

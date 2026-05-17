@@ -1,0 +1,22 @@
+=== DOKUMENTASI WORKFLOW CONTINUOUS INTEGRATION (CI) ===
+Nama Mahasiswa : Aurel Puteri Ramadani
+Platform CI    : GitHub Actions
+
+[Tautan Repositori GitHub]
+https://github.com/aurelputeriramadani/SMSML_Project
+(Silakan sesuaikan tautan di atas dengan link repositori GitHub asli milikmu gess!)
+
+[Deskripsi Alur Workflow CI]
+• Workflow otomatis akan terpicu (trigger) setiap kali ada aktivitas 'push' atau 'pull request' di branch utama (main/master).
+• Runner GitHub Actions akan otomatis menyiapkan lingkungan Python (Setup Python Environment).
+• Melakukan instalasi seluruh dependensi library yang dibutuhkan secara otomatis melalui file requirements.txt.
+• Menjalankan proses pengujian kode atau eksekusi otomatis file pemrograman 'modelling.py' untuk memastikan model dapat dibangun dengan sukses dan lolos uji integrasi (Centang Hijau di GitHub).
+
+Tautan GitHub Repository (Workflow-CI):
+https://github.com/priiiell/Workflow-CI
+
+Tautan GitHub Actions Workflow:
+https://github.com/priiiell/Workflow-CI/actions
+
+Tautan Docker Hub:
+https://hub.docker.com/r/priiiell/sm-mldops-project
